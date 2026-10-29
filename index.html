@@ -1,1 +1,249 @@
- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7faff">
+    <meta name="description" content="Explore molecular structures, chemical properties, and the science behind molecules with MolecuLab.">
+    <title>MolecuLab | Explore the World of Molecules</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <a href="#" class="logo">
+        <span class="logo-icon">M</span>
+        <span>Molecu<span class="accent">Lab</span></span>
+        <span class="version">2.0</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="#home" class="active">Home</a>
+        <a href="#explorer">Molecule Explorer</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#developer">Developer</a>
+    </nav>
+
+    <button class="menu-button" id="menuButton"
+            aria-label="Toggle navigation" aria-expanded="false">☰</button>
+</header>
+
+<main>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="eyebrow">
+                <span class="status-dot"></span>
+                YOUR GATEWAY TO MOLECULAR SCIENCE
+            </div>
+
+            <h1>Explore the<br>World of <span class="gradient-text">Molecules.</span></h1>
+
+            <p class="hero-description">
+                Discover molecular structures, explore chemical properties,
+                and understand the science behind every molecule.
+            </p>
+
+            <form class="search-box" id="searchForm">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input
+                    type="search"
+                    id="moleculeInput"
+                    placeholder="Search glucose, caffeine, ibuprofen..."
+                    aria-label="Search for a molecule"
+                    autocomplete="off"
+                    required>
+                <button type="submit">Explore <span>→</span></button>
+            </form>
+
+            <p class="search-hint">
+                Try a molecule name, chemical formula, or SMILES notation.
+            </p>
+
+            <div class="popular-searches">
+                <span>Popular:</span>
+                <button type="button" class="search-chip" data-molecule="Glucose">Glucose</button>
+                <button type="button" class="search-chip" data-molecule="Caffeine">Caffeine</button>
+                <button type="button" class="search-chip" data-molecule="Quercetin">Quercetin</button>
+                <button type="button" class="search-chip" data-molecule="Ibuprofen">Ibuprofen</button>
+            </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Illustration of a molecular structure">
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+            <div class="orbit orbit-three"></div>
+
+            <div class="molecule molecule-center">C</div>
+            <div class="molecule atom-one">O</div>
+            <div class="molecule atom-two">N</div>
+            <div class="molecule atom-three">H</div>
+            <div class="molecule atom-four">C</div>
+            <div class="molecule atom-five">O</div>
+
+            <div class="bond bond-one"></div>
+            <div class="bond bond-two"></div>
+            <div class="bond bond-three"></div>
+            <div class="bond bond-four"></div>
+            <div class="bond bond-five"></div>
+
+            <div class="visual-label">
+                <span class="status-dot"></span>
+                MOLECULAR EXPLORATION
+            </div>
+        </div>
+
+        <div class="hero-bottom">
+            <span>DISCOVER</span>
+            <span class="bottom-line"></span>
+            <span>VISUALISE</span>
+            <span class="bottom-line"></span>
+            <span>UNDERSTAND</span>
+        </div>
+    </section>
+
+    <section class="section explorer-section" id="explorer">
+        <div class="section-heading">
+            <span class="section-label">MOLECULE EXPLORER</span>
+            <h2>Curiosity starts with a <span class="gradient-text">molecule.</span></h2>
+            <p>Search the chemical world and uncover the details behind its building blocks.</p>
+        </div>
+
+        <div class="result-panel" id="resultPanel" aria-live="polite">
+            <div class="result-placeholder">
+                <div class="placeholder-icon">⌕</div>
+                <h3>Your next discovery starts here</h3>
+                <p>Search for a molecule above to begin exploring.</p>
+            </div>
+        </div>
+
+        <div class="molecule-grid">
+            <button class="molecule-card" data-molecule="Glucose">
+                <span class="card-number">01 / BIOLOGY</span>
+                <span class="card-symbol glucose-symbol">C₆H₁₂O₆</span>
+                <span class="card-name">Glucose</span>
+                <span class="card-description">A key source of energy for living cells.</span>
+                <span class="card-action">Explore molecule ↗</span>
+            </button>
+
+            <button class="molecule-card" data-molecule="Caffeine">
+                <span class="card-number">02 / EVERYDAY CHEMISTRY</span>
+                <span class="card-symbol caffeine-symbol">C₈H₁₀N₄O₂</span>
+                <span class="card-name">Caffeine</span>
+                <span class="card-description">A naturally occurring stimulant found in coffee and tea.</span>
+                <span class="card-action">Explore molecule ↗</span>
+            </button>
+
+            <button class="molecule-card" data-molecule="Quercetin">
+                <span class="card-number">03 / NATURAL COMPOUNDS</span>
+                <span class="card-symbol quercetin-symbol">C₁₅H₁₀O₇</span>
+                <span class="card-name">Quercetin</span>
+                <span class="card-description">A flavonoid found in many fruits and vegetables.</span>
+                <span class="card-action">Explore molecule ↗</span>
+            </button>
+
+            <button class="molecule-card" data-molecule="Ibuprofen">
+                <span class="card-number">04 / PHARMACEUTICALS</span>
+                <span class="card-symbol ibuprofen-symbol">C₁₃H₁₈O₂</span>
+                <span class="card-name">Ibuprofen</span>
+                <span class="card-description">A medicine used to relieve pain, fever and inflammation.</span>
+                <span class="card-action">Explore molecule ↗</span>
+            </button>
+        </div>
+    </section>
+
+    <section class="section features-section" id="features">
+        <div class="section-heading">
+            <span class="section-label">BUILT FOR DISCOVERY</span>
+            <h2>Science, made <span class="gradient-text">explorable.</span></h2>
+            <p>Tools designed to help students and curious minds explore chemistry.</p>
+        </div>
+
+        <div class="features-grid">
+            <article class="feature-card">
+                <span class="feature-icon">⌕</span>
+                <h3>Molecule Explorer</h3>
+                <p>Look up molecules and retrieve available chemical information.</p>
+                <span class="feature-tag">CHEMICAL DATA</span>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-icon">◇</span>
+                <h3>3D Visualisation</h3>
+                <p>Explore molecular structures in interactive three-dimensional space.</p>
+                <span class="feature-tag">INTERACTIVE STRUCTURES</span>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-icon">✳</span>
+                <h3>AI Assistant</h3>
+                <p>Get accessible explanations of molecular concepts and chemistry.</p>
+                <span class="feature-tag">SMART EXPLANATIONS</span>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-icon">↗</span>
+                <h3>Scientific Reports</h3>
+                <p>Prepare downloadable reports and structured molecular data.</p>
+                <span class="feature-tag">PDF & CSV</span>
+            </article>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="about-mark">M<span>.</span></div>
+        <div>
+            <span class="section-label">ABOUT MOLECULAB</span>
+            <h2>Making molecular science easier to explore.</h2>
+            <p>
+                MolecuLab is a learning-focused molecular science project
+                designed to bring chemical information, molecular structures,
+                and interactive discovery together in one place.
+            </p>
+            <p class="about-note">
+                Chemical information will be linked to scientific data sources
+                wherever available. Results may vary depending on data availability.
+            </p>
+        </div>
+    </section>
+
+    <section class="section developer-section" id="developer">
+        <div class="section-heading">
+            <span class="section-label">THE DEVELOPER</span>
+            <h2>Built with curiosity.</h2>
+            <p>A student project exploring the intersection of chemistry and technology.</p>
+        </div>
+
+        <article class="developer-card">
+            <div class="developer-avatar" aria-hidden="true">EK</div>
+            <div class="developer-info">
+                <span class="developer-role">FOUNDER & DEVELOPER</span>
+                <h3>Elamathi K</h3>
+                <p>CSE — Artificial Intelligence and Machine Learning</p>
+                <p>SRM Institute of Science and Technology</p>
+                <p class="developer-bio">
+                    Exploring the intersection of artificial intelligence,
+                    computational chemistry, and technology to make molecular
+                    science more accessible and easier to understand.
+                </p>
+                <a href="https://github.com/elamathikrishnan-hub/MolecuLab-2.0"
+                   target="_blank" rel="noopener noreferrer"
+                   class="developer-link">View project on GitHub ↗</a>
+            </div>
+        </article>
+    </section>
+</main>
+
+<footer class="footer">
+    <a href="#home" class="logo footer-logo">
+        <span class="logo-icon">M</span>
+        <span>Molecu<span class="accent">Lab</span></span>
+    </a>
+    <p>Explore molecules. Understand science.</p>
+    <p class="footer-copy">MolecuLab 2.0 · An educational project</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
