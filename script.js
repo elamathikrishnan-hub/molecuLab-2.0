@@ -14,7 +14,8 @@ const SEARCH_PROPERTIES = [
   "MolecularWeight",
   "IUPACName",
   "CanonicalSMILES",
-  "IsomericSMILES",
+  "ConnectivitySMILES",
+  "SMILES",
   "InChI",
   "InChIKey",
   "XLogP",
@@ -194,8 +195,7 @@ function renderMolecule(properties) {
     "";
 
   const isomericSMILES =
-    properties.IsomericSMILES || "";
-
+    properties.SMILES || properties.IsomericSMILES || "";
   const inchi = properties.InChI || "";
   const imageURL =
     `${PUBCHEM}/compound/cid/${cid}/PNG?image_size=large`;
