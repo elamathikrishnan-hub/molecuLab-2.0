@@ -347,10 +347,6 @@ function renderMolecule(properties) {
     </section>
   `;
 
-  const copyButtons = resultPanel.querySelectorAll("[data-copy]");
-</section>
-`;
-
 load3DStructure(cid);
 
 const copyButtons = resultPanel.querySelectorAll("[data-copy]");
