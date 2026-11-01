@@ -225,7 +225,20 @@ function renderMolecule(properties) {
         >
       </div>
 
-      <div class="molecule-summary">
+    <div class="molecule-3d-section">
+    <h3>Interactive 3D Structure</h3>
+    <p>Rotate and zoom to explore the molecule.</p>
+
+    <div
+        id="molecule3DViewer"
+        style="width:100%; height:350px; position:relative; background:#f0f7ff; border-radius:16px;">
+    </div>
+
+    <p id="molecule3DStatus" role="status">
+        Preparing 3D viewer...
+    </p>
+</div>
+ <div class="molecule-summary">
         <h3>Basic Information</h3>
         <p><strong>Formula:</strong> ${escapeHTML(formula)}</p>
         <p><strong>Molecular weight:</strong>
