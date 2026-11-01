@@ -182,6 +182,57 @@ function propertyCard(label, value, suffix = "") {
     </div>
   `;
 }
+async function load3DStructure(cid) {
+    const container = document.getElementById("molecule3DViewer");
+    const status = document.getElementById("molecule3DStatus");
+
+    if (!container || !status) return;
+
+    if (typeof $3Dmol === "undefined") {
+        status.textContent = "3D viewer library could not load. Please refresh.";
+        return;
+    }
+
+    status.textContent = "Loading 3D molecular structure...";
+
+    try {
+        const url = `${PUBCHEM}/compound/cid/${cid}/SDF?record_type=3d`;
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error("3D structure unavailable");
+        }
+
+        const sdf = await response.text();
+
+        if (!sdf.includes("M  END")) {
+            throw new Error("Invalid 3D structure data");
+        }
+
+        const viewer = $3Dmol.createViewer(container, {
+            backgroundColor: "#f0f7ff"
+        });
+
+        viewer.addModel(sdf, "sdf");
+
+        viewer.setStyle({}, {
+            stick: { radius: 0.18 },
+            sphere: { scale: 0.25 }
+        });
+
+        viewer.zoomTo();
+        viewer.render();
+
+        status.textContent =
+            "3D structure loaded! Drag to rotate and use pinch gestures to zoom.";
+
+    } catch (error) {
+        container.innerHTML = "";
+
+        status.textContent =
+            "A 3D structure is not available for this molecule.";
+    }
+}
 
 function renderMolecule(properties) {
   const cid = properties.CID;
