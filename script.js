@@ -212,16 +212,47 @@ async function load3DStructure(cid) {
         const viewer = $3Dmol.createViewer(container, {
             backgroundColor: "#f0f7ff"
         });
+      const controls = document.createElement("div");
+controls.style.cssText =
+    "display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;";
+
+controls.innerHTML = `
+    <button type="button" data-style="ball">Ball & Stick</button>
+    <button type="button" data-style="stick">Stick</button>
+    <button type="button" data-style="sphere">Space-Filling</button>
+`;
+
+container.parentElement.insertBefore(controls, container);
 
         viewer.addModel(sdf, "sdf");
-
+      function applyMoleculeStyle(style) {
+    if (style === "ball") {
         viewer.setStyle({}, {
             stick: { radius: 0.18 },
             sphere: { scale: 0.25 }
         });
+    } else if (style === "stick") {
+        viewer.setStyle({}, {
+            stick: { radius: 0.25 }
+        });
+    } else if (style === "sphere") {
+        viewer.setStyle({}, {
+            sphere: { scale: 0.8 }
+        });
+    }
 
-        viewer.zoomTo();
-        viewer.render();
+    viewer.render();
+}
+      applyMoleculeStyle("ball");
+
+controls.querySelectorAll("[data-style]").forEach(button => {
+    button.addEventListener("click", () => {
+        applyMoleculeStyle(button.dataset.style);
+    });
+});
+
+viewer.zoomTo();
+viewer.render();
 
         status.textContent =
             "3D structure loaded! Drag to rotate and use pinch gestures to zoom.";
