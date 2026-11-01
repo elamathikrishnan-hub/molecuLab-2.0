@@ -348,6 +348,12 @@ function renderMolecule(properties) {
   `;
 
   const copyButtons = resultPanel.querySelectorAll("[data-copy]");
+</section>
+`;
+
+load3DStructure(cid);
+
+const copyButtons = resultPanel.querySelectorAll("[data-copy]");
 
   copyButtons.forEach(button => {
     button.addEventListener("click", async () => {
